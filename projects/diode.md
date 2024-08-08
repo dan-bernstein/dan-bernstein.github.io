@@ -7,7 +7,7 @@ Created an inteactive model to help users explore electronic properties of diode
 
 * Demonstrates affects of different parameters (temperature, ideality, saturation current etc.) on I-V curves of ideal diodes
 * Interpolates and models I-V curves for three diodes allowing comparison  
-* Provides interacitve UI for the user allowing easy and clear navigation and exploration of model
+* Provides interacitve UI for the user allowing easy and clear navigation of model
 
 <br>
 
