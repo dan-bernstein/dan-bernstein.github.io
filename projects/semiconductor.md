@@ -1,4 +1,4 @@
-# Semiconductor Device Interactive Model
+# Ideal Diode Interactive Model
 Created an inteactive model to help users explore electronic properties of diodes
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
