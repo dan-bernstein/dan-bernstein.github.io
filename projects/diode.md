@@ -5,7 +5,7 @@ Created an inteactive model to help users explore electronic properties of diode
 <img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/diodesCombined.png?raw=true" height="200">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
 
-* Demonstrates affects of different parameters (temperature, ideality, saturation current etc.) on I-V curves of ideal diodes
+* Demonstrates effects of different parameters (temperature, ideality, saturation current etc.) on I-V curves of ideal diodes
 * Interpolates and models I-V curves for three diodes allowing comparison  
 * Provides interacitve UI for the user allowing easy and clear navigation of model
 

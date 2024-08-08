@@ -1,4 +1,4 @@
-# Superconducting Electronics Research
+# Kronig–Penney Computational MATLAB Model
 Researched dynamics of trapped flux in superconducting circuts to observe Macroscopic Quantum Tunnelling (MQT)
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
@@ -11,6 +11,6 @@ Researched dynamics of trapped flux in superconducting circuts to observe Macros
 
 <br>
 
-<a href="https://github.com/dan-bernstein/website-contents/tree/main/research/superconducting-electronics" target="_blank" rel="noopener noreferrer">
-    <i class="fa-solid fa-up-right-from-square"></i> <strong>Read More About My Research!</strong>
+<a href="https://github.com/dan-bernstein/website-contents/tree/main/modeling-and-simulation/one-dimension-lattice" target="_blank" rel="noopener noreferrer">
+    <i class="fa-solid fa-up-right-from-square"></i> <strong>Check out the code!</strong>
 </a>
