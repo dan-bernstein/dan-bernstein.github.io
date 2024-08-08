@@ -1,13 +1,13 @@
 # Kronig–Penney Computational MATLAB Model
-Researched dynamics of trapped flux in superconducting circuts to observe Macroscopic Quantum Tunnelling (MQT)
+Insert New Text
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
-<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/fluxon.jpg?raw=true" height="200">
+<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/LatticeModelCombined.png?raw=true" height="200">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
 
-* Coded and implemented a computational model of fluxon dynamics in Josephson Junction rings
-* Operated helium dilution fridge and collected data for various arrays and configurations of junctions
-* Designed and constructed control circuitry and filters for superconducting circuits to filter high frequency noise
+* Bullet Point 1
+* Bullet Point 2
+* Bullet Point 3
 
 <br>
 
