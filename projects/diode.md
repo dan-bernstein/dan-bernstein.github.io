@@ -1,0 +1,16 @@
+# Semiconductor Device Interactive Model
+Created an inteactive model to help users explore electronic properties of diodes
+<div style="height:10px;font-size:1px;">&nbsp;</div>
+
+<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/diodesCombined.jpg?raw=true" height="200">
+<div style="height:20px;font-size:1px;">&nbsp;</div>
+
+* Demonstrates affects of different parameters (temperature, ideality, saturation current etc.) on I-V curves of ideal diodes
+* Interpolates and models I-V curves for three diodes allowing comparison  
+* Provides interacitve UI for the user allowing easy and clear navigation and exploration of model
+
+<br>
+
+<a href="https://github.com/dan-bernstein/website-contents/tree/main/modeling-and-simulation/semiconductors" target="_blank" rel="noopener noreferrer">
+    <i class="fa-solid fa-up-right-from-square"></i> <strong>Check out the code!</strong>
+</a>
