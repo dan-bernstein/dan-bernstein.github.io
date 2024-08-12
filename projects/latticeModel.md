@@ -7,7 +7,7 @@ Implimented a computational model to calculate and visualize energy eigenvalues 
 
 * Allows users to visualize the data in 2-D and 3-D, with barrier height of the potential as a parameter
 * Demonstrates and vizualizes the energy band gap for a period potential
-* Shows the affect that changes in potential width and distance between atoms has on the dispersion relation
+* Shows impact of distance between atoms and potential width has on the dispersion relation
 
 <br>
 
