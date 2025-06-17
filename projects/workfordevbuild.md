@@ -1,5 +1,5 @@
 # DEVBUILD
-Providing technical advisory for an emerging consumer electronics accessories and media company
+Building and providing technical advisory for an emerging consumer electronics accessories and media company
 <br>
 
 <img src="https://raw.githubusercontent.com/dan-bernstein/dan-bernstein.github.io/main/assets/DevBuild.png" height="200">
