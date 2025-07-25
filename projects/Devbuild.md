@@ -21,6 +21,9 @@ Building and providing technical advisory for an emerging consumer electronics a
 <a href="https://www.instagram.com/devbuild.digital/" target="_blank" rel="noopener noreferrer">
     <i class="fa-solid fa-up-right-from-square"></i> <strong> Check Out DEVBUILD</strong>
 </a>
+
+<br>
+
 <a href="https://devbuild.digital/" target="_blank" rel="noopener noreferrer">
     <i class="fa-solid fa-store"></i> <strong> DEVBUILD Shop</strong>
 </a>
