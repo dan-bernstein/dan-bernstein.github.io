@@ -1,9 +1,10 @@
 name: Generate files.json
-
+run-name: Update files.json
 on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   generate-files:
