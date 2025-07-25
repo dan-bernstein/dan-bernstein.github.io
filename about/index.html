@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me - Daniel Bernstein</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" />
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
+  <style>
+    .dark-mode {
+      background-color: #1a1a1a;
+      color: #f8f8f8;
+    }
+
+    .dark-mode .bg-white {
+      background-color: #1a1a1a;
+    }
+
+    .dark-mode .text-black {
+      color: #f8f8f8;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col items-center p-6 relative">
+  <div id="particles-js"></div>
+  <div class="w-full max-w-4xl z-10">
+    <div class="flex justify-between items-center w-full mb-4">
+      <a href="/" class="text-blue-500 hover:underline mb-4 inline-block">← Back to Home</a>
+      <button id="dark-mode-toggle" class="p-2 text-black dark:text-white rounded shadow-md">🌓</button>
+    </div>
+
+    <h1 class="text-4xl font-bold mb-6">About Me</h1>
+
+    <p class="text-lg leading-relaxed mb-4">
+      Hi, I’m Daniel Bernstein — a systems test engineer and materials science grad student who loves applying creativity to engineering problems.
+    </p>
+
+    <p class="text-lg leading-relaxed mb-4">
+      My interests include compound semiconductors, sustainable tech, and quantum computing. I build things, solve problems, and always stay curious.
+    </p>
+  </div>
+
+  <footer class="mt-8 mb-4 z-10">
+    <div class="flex flex-col md:flex-row items-center justify-between text-sm text-gray-600 dark:text-gray-300 space-y-2 md:space-y-0">
+      <div>&copy; <script>document.write(new Date().getFullYear());</script> Dan Bernstein</div>
+      <div class="cursor-pointer text-blue-500 hover:underline" onclick="elevator.elevate();">To the Top ⬆️</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/elevator.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 }},
+        color: { value: '#888888' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 125, color: '#888888', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6 }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true },
+          resize: true
+        },
+        modes: { repulse: { distance: 200, duration: 0.4 }}
+      },
+      retina_detect: true
+    });
+
+    const elevator = new Elevator({ duration: 2000 });
+
+    const toggleBtn = document.getElementById("dark-mode-toggle");
+    toggleBtn.addEventListener("click", () => {
+      const html = document.documentElement;
+      html.classList.toggle("dark");
+      localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+      toggleBtn.innerText = html.classList.contains("dark") ? "☀️" : "🌓";
+    });
+  </script>
+</body>
+</html>
