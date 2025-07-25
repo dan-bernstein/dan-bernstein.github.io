@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/TabIcon.png?raw=true">
+  <link rel="icon" type="image/png" href="assets/TabIcon.png">
   <title>Daniel Bernstein</title>
   <style>
 .markdown-container img {
@@ -77,19 +77,17 @@
       Contact
     </a>
     </div>
-    <button id="dark-mode-toggle" class="ml-4 p-2  text-black rounded shadow-md">🌓</button>
+    <button id="dark-mode-toggle" class="ml-4 p-2 text-black rounded shadow-md">🌓</button>
   </nav>
 
   <div class="flex flex-col items-center justify-center min-h-screen">
     <div id="header-container" class="px-10 py-5 space-x-2">
       <h1 class="text-8xl font-bold mb-5">Daniel Bernstein</h1> 
-      <!--<h2 class="text-2xl mb-2">Engineering Excellence, Crafted with Curiosity and Creativity</h2>--->
       <h3 class="text-xl mb-4"><b>Engineering Excellence, Crafted with Creativity</b></h3>
       <div class="flex space-x-4">
         <a href="https://www.linkedin.com/in/daniel-bernstein1" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-linkedin"></i></a>
         <a href="https://instagram.com/dan.bern" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-instagram"></i></a>
         <a href="tel:+19788095889" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fa-solid fa-phone"></i></a>
-        <!--<a href="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/Resume.pdf" download target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fa-solid fa-file"></i></a>-->
         <a href="mailto:danhbern@gmail.com" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
@@ -99,153 +97,165 @@
       <h3 class="text-2xl font-semibold mb-4"><i class="fa-solid fa-magnifying-glass"></i> Creative Projects</h3>
       <h4 class="text-sm italic mb-4">A display of my hobbies & interests</h4>
       <div id="posts-list" class="space-y-4">
-        <!-- Fetched Posts Markdown files will be displayed here -->
+        <!-- Local Posts Markdown files will be displayed here -->
       </div>
     </div>
     <div id="projects-container" class="w-full md:w-2/3 px-4 py-5 mb-5 md:mb-0">
       <h3 class="text-2xl font-semibold mb-4"><i class="fa-solid fa-code"></i> Technical Work</h3>
       <h4 class="text-sm italic mb-4">My research and other technical endeavors</h4>
       <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-wrap">
-        <!-- Fetched Projects Markdown files will be displayed here -->
+        <!-- Local Projects Markdown files will be displayed here -->
       </div>
     </div>
   </div>
-    <script>
-      document.getElementById("dark-mode-toggle").addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-  
-        const toggleBtn = document.getElementById("dark-mode-toggle");
-        const isDarkModeOn = document.body.classList.contains("dark-mode");
-  
-        toggleBtn.innerText = isDarkModeOn ? "☀️" : "🌓";
-      });
-    </script>
-    <div id="listening-container" class="w-full px-20 py-5">
-  <h3 class="text-2xl font-semibold mb-4"><i class="fab fa-spotify"></i> Music I've Been Enjoying</h3>
-  <div id="listening-list" class="flex flex-wrap mx-auto md:-mx-2 md:space-x-4">
-    <!-- Fetched Listening Markdown files will be displayed here -->
+  <div id="listening-container" class="w-full px-20 py-5">
+    <h3 class="text-2xl font-semibold mb-4"><i class="fab fa-spotify"></i> Music I've Been Enjoying</h3>
+    <div id="listening-list" class="flex flex-wrap mx-auto md:-mx-2 md:space-x-4">
+      <!-- Local Listening Markdown files will be displayed here -->
+    </div>
+    <!-- Spotify Playlist Embed -->
+    <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1EpwM8ULPn059D?utm_source=generator&theme=0" 
+            width="100%" 
+            height="624" 
+            frameborder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
   </div>
-  <!-- Spotify Playlist Embed -->
-  <iframe style="border-radius:12px" 
-          src="https://open.spotify.com/embed/playlist/37i9dQZF1EpwM8ULPn059D?utm_source=generator&theme=0" 
-          width="100%" 
-          height="624" 
-          frameborder="0" 
-          allowfullscreen="" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy">
-  </iframe>
-</div>
-  </div>
+  <script>
+    document.getElementById("dark-mode-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const toggleBtn = document.getElementById("dark-mode-toggle");
+      const isDarkModeOn = document.body.classList.contains("dark-mode");
+      toggleBtn.innerText = isDarkModeOn ? "☀️" : "🌓";
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
   <script>
     const postsList = document.getElementById('posts-list');
     const projectsList = document.getElementById('projects-list');
+    const listeningList = document.getElementById('listening-list');
     const converter = new showdown.Converter({
       simpleLineBreaks: true,
       strikethrough: true,
       tables: true,
     });
-    const baseUrl = "https://api.github.com/repos/dan-bernstein/dan-bernstein.github.io/contents/";
-    const folders = ['posts', 'projects', 'listening'];
 
-    async function fetchMarkdownFiles(folder) {
-      const response = await fetch(`${baseUrl}${folder}`);
-      const files = await response.json();
+    async function fetchMarkdownFiles(folder, files, container, maxVisibleItems) {
       function shuffleArray(array) {
-          for (let i = array.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [array[i], array[j]] = [array[j], array[i]];
-          }
-          return array;
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
       }
 
-      const randomFiles = files;
-      const maxVisibleItems = folder === 'posts' ? 3 : folder === 'projects' ? 2 : Infinity;
+      const randomFiles = shuffleArray([...files]);
       let itemCount = 0;
 
       for (const file of randomFiles) {
-        if (file.name.endsWith('.md')) {
-          const fileRes = await fetch(file.download_url);
-          const mdContent = await fileRes.text();
-          const mdWithLineBreaks = mdContent.replace(/\n/g, '  \n');
-          const htmlContent = converter.makeHtml(mdWithLineBreaks);
+        if (file.endsWith('.md')) {
+          try {
+            const filePath = `${folder}/${file}`;
+            const fileRes = await fetch(filePath);
+            if (!fileRes.ok) {
+              console.error(`Failed to load ${filePath}: ${fileRes.statusText}`);
+              continue;
+            }
+            const mdContent = await fileRes.text();
+            const mdWithLineBreaks = mdContent.replace(/\n/g, '  \n');
+            const htmlContent = converter.makeHtml(mdWithLineBreaks);
 
-          const title = mdContent.split('\n')[0].replace(/^#+\s*/, '');
-          const contentWithoutTitle = mdContent.replace(/^.+\n/, '');
-          const htmlContentWithoutTitle = converter.makeHtml(contentWithoutTitle);
-          const fileCard = `
+            const title = mdContent.split('\n')[0].replace(/^#+\s*/, '');
+            const contentWithoutTitle = mdContent.replace(/^.+\n/, '');
+            const htmlContentWithoutTitle = converter.makeHtml(contentWithoutTitle);
+            const fileCard = `
               <div class="markdown-container bg-white p-4 rounded shadow-md transition-colors duration-200 hover:bg-gray-100 w-200 h-200 overflow-auto flex-none mx-2 my-2">
                 <h2 class="text-xl font-semibold mb-2">${title}</h2>
                 <div>${htmlContentWithoutTitle}</div>
               </div>
-          `;
+            `;
 
-          if (itemCount < maxVisibleItems) {
-            if (folder === 'posts') {
-              postsList.innerHTML += fileCard;
-            } else if (folder === 'projects') {
-              projectsList.innerHTML += fileCard;
-            } else if (folder === 'listening') {
-              document.getElementById('listening-list').innerHTML += fileCard;
-            }
-          } else {
-            if (folder !== 'listening') {
+            if (itemCount < maxVisibleItems) {
+              container.innerHTML += fileCard;
+            } else if (folder !== 'listening') {
               const hiddenCard = `<div class='hidden'>${fileCard}</div>`;
-              if (folder === 'posts') {
-                postsList.innerHTML += hiddenCard;
-              } else if (folder === 'projects') {
-                projectsList.innerHTML += hiddenCard;
-              }
+              container.innerHTML += hiddenCard;
             }
+            itemCount++;
+          } catch (error) {
+            console.error(`Error loading ${file}: ${error.message}`);
           }
-          itemCount++;
         }
       }
 
-    if (folder !== 'listening' && itemCount > maxVisibleItems) {
-      const container = folder === 'posts' ? postsList : projectsList;
-      createShowMoreButton(container);
+      if (folder !== 'listening' && itemCount > maxVisibleItems) {
+        createShowMoreButton(container);
+      }
     }
-  }
-        const createShowLessButton = (container) => {
-        const button1 = document.createElement('button');
-        button1.innerHTML = '➖ Show Less';
-        button1.classList.add('show-less');
-        button1.style.color = 'gray'; // Set the text color to gray
-        button1.style.marginTop = '10px'; // Add some margin on top
-        container.after(button1);
 
-        button1.addEventListener('click', () => {
-          const hiddenItems = container.querySelectorAll('.shown');
-            hiddenItems.forEach(item => item.classList.remove('shown'));
-            hiddenItems.forEach(item => item.classList.add('hidden'));
-            button1.remove();
-            createShowMoreButton(container);
-          })
-        }
+    const createShowLessButton = (container) => {
+      const button1 = document.createElement('button');
+      button1.innerHTML = '➖ Show Less';
+      button1.classList.add('show-less');
+      button1.style.color = 'gray';
+      button1.style.marginTop = '10px';
+      container.after(button1);
 
-        const createShowMoreButton = (container) => {
-        const button = document.createElement('button');
-        button.innerHTML = '➕ Show More';
-        button.classList.add('show-more');
-        button.style.color = 'gray'; // Set the text color to gray
-        button.style.marginTop = '10px'; // Add some margin on top
-        container.after(button);
-
-        button.addEventListener('click', () => {
-            const hiddenItems = container.querySelectorAll('.hidden');
-            hiddenItems.forEach(item => item.classList.remove('hidden'));
-            hiddenItems.forEach(item => item.classList.add('shown'));
-            button.remove();
-            createShowLessButton(container);
-        });
+      button1.addEventListener('click', () => {
+        const hiddenItems = container.querySelectorAll('.shown');
+        hiddenItems.forEach(item => item.classList.remove('shown'));
+        hiddenItems.forEach(item => item.classList.add('hidden'));
+        button1.remove();
+        createShowMoreButton(container);
+      });
     };
 
-    folders.forEach(folder => {
-        fetchMarkdownFiles(folder);
-    });
+    const createShowMoreButton = (container) => {
+      const button = document.createElement('button');
+      button.innerHTML = '➕ Show More';
+      button.classList.add('show-more');
+      button.style.color = 'gray';
+      button.style.marginTop = '10px';
+      container.after(button);
+
+      button.addEventListener('click', () => {
+        const hiddenItems = container.querySelectorAll('.hidden');
+        hiddenItems.forEach(item => item.classList.remove('hidden'));
+        hiddenItems.forEach(item => item.classList.add('shown'));
+        button.remove();
+        createShowLessButton(container);
+      });
+    };
+
+    // Fetch the file list from files.json
+    async function loadFilesAndRender() {
+      try {
+        const response = await fetch('files.json');
+        if (!response.ok) {
+          console.error(`Failed to load files.json: ${response.statusText}`);
+          return;
+        }
+        const fileLists = await response.json();
+
+        const folders = [
+          { name: 'posts', files: fileLists.posts || [], container: postsList, maxVisibleItems: 3 },
+          { name: 'projects', files: fileLists.projects || [], container: projectsList, maxVisibleItems: 2 },
+          { name: 'listening', files: fileLists.listening || [], container: listeningList, maxVisibleItems: Infinity }
+        ];
+
+        folders.forEach(({ name, files, container, maxVisibleItems }) => {
+          fetchMarkdownFiles(name, files, container, maxVisibleItems);
+        });
+      } catch (error) {
+        console.error(`Error loading files.json: ${error.message}`);
+      }
+    }
+
+    loadFilesAndRender();
   </script>
   <script>
     particlesJS('particles-js', {
@@ -356,77 +366,76 @@
   <script src="https://unpkg.com/elevator.js"></script>
   <script>
     const elevator = new Elevator({
-      <!--mainAudio: "https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/elevator.mp3",-->
       duration: 2000,
     });
 
-const footer = document.createElement("footer");
-footer.className = "mt-8 mb-4";
-const footerContent = document.createElement("div");
-footerContent.className = "flex items-center justify-between";
-footer.appendChild(footerContent);
+    const footer = document.createElement("footer");
+    footer.className = "mt-8 mb-4";
+    const footerContent = document.createElement("div");
+    footerContent.className = "flex items-center justify-between";
+    footer.appendChild(footerContent);
 
-const copyright = document.createElement("div");
-copyright.className = "hidden md:flex";
-copyright.innerHTML = '&nbsp;&nbsp;&copy; ' + (new Date().getFullYear()) + ' Dan Bernstein';
-footerContent.appendChild(copyright);
+    const copyright = document.createElement("div");
+    copyright.className = "hidden md:flex";
+    copyright.innerHTML = '  © ' + (new Date().getFullYear()) + ' Dan Bernstein';
+    footerContent.appendChild(copyright);
 
-const madeWith = document.createElement("div");
-madeWith.className = "hidden md:flex";
-madeWith.innerHTML = '';
-footerContent.appendChild(madeWith);
+    const madeWith = document.createElement("div");
+    madeWith.className = "hidden md:flex";
+    madeWith.innerHTML = '';
+    footerContent.appendChild(madeWith);
 
-const elevatorBtnDiv = document.createElement("div");
-elevatorBtnDiv.innerHTML = 'To the Top&nbsp;&nbsp;<i class="fas fa-angle-up"></i>&nbsp;&nbsp;';
-elevatorBtnDiv.className = "text-center flex justify-center items-center cursor-pointer mt-4";
-elevatorBtnDiv.onclick = () => {
-  elevator.elevate();
-};
+    const elevatorBtnDiv = document.createElement("div");
+    elevatorBtnDiv.innerHTML = 'To the Top  <i class="fas fa-angle-up"></i>  ';
+    elevatorBtnDiv.className = "text-center flex justify-center items-center cursor-pointer mt-4";
+    elevatorBtnDiv.onclick = () => {
+      elevator.elevate();
+    };
 
-footerContent.appendChild(elevatorBtnDiv);
-document.body.appendChild(footer);
+    footerContent.appendChild(elevatorBtnDiv);
+    document.body.appendChild(footer);
   </script>
-    <style>
-      @keyframes pulsate {
-        0% {
-          transform: scale(1);
-          opacity: 0.7;
-        }
-        50% {
-          transform: scale(1.2);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 0.7;
-        }
+  <style>
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
       }
-      #scroll-down-btn i {
-        animation: pulsate 1.5s linear infinite;
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
       }
-    </style>
-    <button id="scroll-down-btn" class="fixed bottom-4 left-1/2 text-black p-2 rounded shadow-md opacity-80 transition-colors duration-200 ease-in-out dark:bg-gray-800 dark:text-white">
-      <i class="fa-solid fa-v"></i>
-    </button>
-    <script>
-      const scrollDownBtn = document.getElementById('scroll-down-btn');
-      const headerContainer = document.getElementById('header-container');
-
-      const toggleScrollButtonVisibility = () => {
-        if (window.pageYOffset === 0) {
-          scrollDownBtn.style.display = 'flex';
-        } else {
-          scrollDownBtn.style.display = 'none';
-        }
+      100% {
+        transform: scale(1);
+        opacity: 0.7;
       }
+    }
+    #scroll-down-btn i {
+      animation: pulsate 1.5s linear infinite;
+    }
+  </style>
+  <button id="scroll-down-btn" class="fixed bottom-4 left-1/2 text-black p-2 rounded shadow-md opacity-80 transition-colors duration-200 ease-in-out dark:bg-gray-800 dark:text-white">
+    <i class="fa-solid fa-v"></i>
+  </button>
+  <script>
+    const scrollDownBtn = document.getElementById('scroll-down-btn');
+    const headerContainer = document.getElementById('header-container');
 
-      scrollDownBtn.addEventListener('click', () => {
-        const yOffset = headerContainer.getBoundingClientRect().bottom + window.pageYOffset;
-        window.scrollTo({top: yOffset, behavior: 'smooth'});
-      });
+    const toggleScrollButtonVisibility = () => {
+      if (window.pageYOffset === 0) {
+        scrollDownBtn.style.display = 'flex';
+      } else {
+        scrollDownBtn.style.display = 'none';
+      }
+    }
 
-      window.addEventListener('scroll', toggleScrollButtonVisibility);
-      toggleScrollButtonVisibility();
-    </script>
+    scrollDownBtn.addEventListener('click', () => {
+      const yOffset = headerContainer.getBoundingClientRect().bottom + window.pageYOffset;
+      window.scrollTo({top: yOffset, behavior: 'smooth'});
+    });
+
+    window.addEventListener('scroll', toggleScrollButtonVisibility);
+    toggleScrollButtonVisibility();
+  </script>
 </body>
 </html>
