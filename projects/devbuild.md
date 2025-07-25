@@ -2,8 +2,12 @@
 Building and providing technical advisory for an emerging consumer electronics accessories and media company
 <br>
 
-<img src="https://raw.githubusercontent.com/dan-bernstein/dan-bernstein.github.io/main/assets/DevBuild.png" height="200">
-<div style="height:20px;font-size:1px;">&nbsp;</div>
+<div class="HeaderVideo">
+    <video class="video-large" autoplay muted loop playsinline style="width: 100%; z-index: -1;">
+        <source src="https://cdn.shopify.com/videos/c/o/v/84ed64b3e9a3488d934ba20c537d53b3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
 
 * Created and advised technical schematics for custom 3.5 mm and RCA cables
