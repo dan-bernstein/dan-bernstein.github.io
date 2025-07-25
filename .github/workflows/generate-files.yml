@@ -1,0 +1,49 @@
+name: Generate files.json
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate files.json
+        run: |
+          python -c "
+          import os
+          import json
+
+          dirs = ['posts', 'projects', 'listening']
+          file_lists = {}
+
+          for dir_name in dirs:
+              dir_path = os.path.join('.', dir_name)
+              if os.path.exists(dir_path):
+                  md_files = [f for f in os.listdir(dir_path) if f.endswith('.md')]
+                  file_lists[dir_name] = sorted(md_files)
+              else:
+                  file_lists[dir_name] = []
+
+          with open('files.json', 'w') as f:
+              json.dump(file_lists, f, indent=2)
+          "
+
+      - name: Commit files.json
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add files.json
+          git commit -m "Update files.json with latest .md files" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
