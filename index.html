@@ -145,18 +145,9 @@
     });
 
     async function fetchMarkdownFiles(folder, files, container, maxVisibleItems) {
-      function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-      }
-
-      const randomFiles = shuffleArray([...files]);
       let itemCount = 0;
 
-      for (const file of randomFiles) {
+      for (const file of files) {
         if (file.endsWith('.md')) {
           try {
             const filePath = `${folder}/${file}`;
@@ -231,7 +222,6 @@
       });
     };
 
-    // Fetch the file list from files.json
     async function loadFilesAndRender() {
       try {
         const response = await fetch('files.json');
