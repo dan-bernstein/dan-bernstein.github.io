@@ -1,0 +1,31 @@
+{
+  "posts": [
+    "Backgammon.md",
+    "StereoRestoration.md",
+    "thirteenBeats.md",
+    "vectorDrawing.md",
+    "ypearGif.md",
+    "zMiscellaneous.md"
+  ],
+  "projects": [
+    "Devbuild.md",
+    "Spintronics.md",
+    "SuperconductingElectronics.md",
+    "TheRFSystemSimulation.md",
+    "latticeModel.md",
+    "semiconductor.md",
+    "zelectronics.md"
+  ],
+  "listening": [
+    "csny.md",
+    "daftpunk.md",
+    "jimcroce.md",
+    "joeyb.md",
+    "laundryroom.md",
+    "morisette.md",
+    "scenario.md",
+    "stonetemplepilots.md",
+    "summermadness.md",
+    "virji.md"
+  ]
+}
