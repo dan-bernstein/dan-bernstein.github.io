@@ -2,9 +2,8 @@
 Worked on various electronics projects ranging from custom guitar pedals to precision active band-pass filters
 <br>
 
-<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/GuitarPedal.png?raw=true" height="200">
+<img src="assets/GuitarPedal.png" height="200" alt="Guitar Pedal">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
-
 
 * Created a custom overdrive guitar pedal with tone, level, and drive adjustments
 * Integrated off the shelf components with custom circuts to create multiple electronics displays

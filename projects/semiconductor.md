@@ -2,7 +2,7 @@
 Created an inteactive model to help users explore electronic properties of diodes
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
-<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/diodesCombined.png?raw=true" height="200">
+<img src="assets/diodesCombined.png" height="200" alt="Semiconductor Model">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
 
 * Demonstrates effects of different parameters (temperature, ideality, saturation current etc.) on I-V curves of ideal diodes

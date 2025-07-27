@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - develop
 
 jobs:
   generate-files:
@@ -24,7 +23,7 @@ jobs:
           import os
           import json
 
-          dirs = ['posts', 'projects', 'listening']
+          dirs = ['posts', 'projects']
           file_lists = {}
 
           for dir_name in dirs:
