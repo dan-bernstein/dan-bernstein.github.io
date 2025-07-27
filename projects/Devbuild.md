@@ -10,10 +10,10 @@ Building and providing technical advisory for an emerging consumer electronics a
 </div>
 
 <br>
-
+* Using embedded electronic devices to repurpose VHS camcorders
 * Created and advised technical schematics for custom 3.5 mm and RCA cables
 * Introduced and improved 3D printing rapid prototyping
-* Outlined product testing standards and metrics
+* Outlined product testing metrics and standard practices
 <br>
 
 <!--**[<i class="fa-solid fa-up-right-from-square"></i> Check Out DEVBUILD](https://www.instagram.com/devbuild.digital/)**-->
@@ -21,9 +21,6 @@ Building and providing technical advisory for an emerging consumer electronics a
 <a href="https://www.instagram.com/devbuild.digital/" target="_blank" rel="noopener noreferrer">
     <i class="fa-solid fa-up-right-from-square"></i> <strong> Check Out DEVBUILD</strong>
 </a>
-
-<br>
-
 <a href="https://devbuild.digital/" target="_blank" rel="noopener noreferrer">
     <i class="fa-solid fa-store"></i> <strong> DEVBUILD Shop</strong>
 </a>
