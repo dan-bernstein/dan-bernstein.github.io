@@ -249,14 +249,14 @@
     footer.appendChild(footerContent);
     const copyright = document.createElement("div");
     copyright.className = "hidden md:flex";
-    copyright.innerHTML = '© ' + (new Date().getFullYear()) + ' Dan Bernstein';
+    copyright.innerHTML = '  © ' + (new Date().getFullYear()) + ' Dan Bernstein';
     footerContent.appendChild(copyright);
     const madeWith = document.createElement("div");
     madeWith.className = "hidden md:flex";
     madeWith.innerHTML = '';
     footerContent.appendChild(madeWith);
     const elevatorBtnDiv = document.createElement("div");
-    elevatorBtnDiv.innerHTML = 'To the Top <i class="fas fa-angle-up"></i>';
+    elevatorBtnDiv.innerHTML = 'To the Top  <i class="fas fa-angle-up"></i>  ';
     elevatorBtnDiv.className = "text-center flex justify-center items-center cursor-pointer mt-4";
     elevatorBtnDiv.onclick = () => { elevator.elevate(); };
     footerContent.appendChild(elevatorBtnDiv);
