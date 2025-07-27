@@ -2,7 +2,7 @@
 Implimented a computational model to calculate and visualize energy eigenvalues for a one-dimenstional lattice of atoms
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
-<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/LatticeModelCombined.png?raw=true" height="200">
+<img src="assets/LatticeModelCombined.png" height="200" alt="Matlab Lattice Model">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
 
 * Allows users to visualize the data in 2-D and 3-D, with barrier height of the potential as a parameter

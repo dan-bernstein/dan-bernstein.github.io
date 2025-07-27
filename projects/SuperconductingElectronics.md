@@ -2,7 +2,7 @@
 Researched dynamics of trapped flux in superconducting circuts to observe Macroscopic Quantum Tunnelling (MQT)
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
-<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/fluxon.jpg?raw=true" height="200">
+<img src="assets/fluxon.jpg" height="200" alt="Jospehson Junctions">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
 
 * Coded and implemented a computational model of fluxon dynamics in Josephson Junction rings

@@ -2,7 +2,7 @@
 Completed undergraduate thesis work researching Magnetic Tunnel Junctions (MTJs) in a nanomaterials lab
 <div style="height:10px;font-size:1px;">&nbsp;</div>
 
-<img src="https://github.com/dan-bernstein/dan-bernstein.github.io/blob/main/assets/MTJs.jpg?raw=true" height="200">
+<img src="assets/MTJs.jpg" height="200" alt="Magnetic Tunnel Junctions">
 <div style="height:20px;font-size:1px;">&nbsp;</div>
 
 * Performed AFM & SEM imaging on MTJs to characterize junctions and inform effectiveness of nanofabrication techniques
