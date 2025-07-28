@@ -1,0 +1,58 @@
+.markdown-container img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.markdown-container h2 {
+  font-weight: bold;
+}
+.markdown-container ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* System dark mode styles */
+@media (prefers-color-scheme: dark) {
+  body, .bg-white {
+    background-color: #1a1a1a;
+  }
+  .text-black, .text-gray-900, h1, h2, h3, h4, .bg-white .card-content, .bg-white div {
+    color: #f8f8f8;
+  }
+  footer, footer .text-gray-600 {
+    color: #f8f8f8;
+  }
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
+  }
+  .bg-white.p-4.rounded.shadow-md.transition-colors.duration-200:hover {
+    background-color: #333333;
+  }
+  a.text-black:hover {
+    background-color: #4a4a4a;
+    color: #f8f8f8;
+  }
+  button.text-black {
+    background-color: #4a4a4a;
+    color: #f8f8f8;
+  }
+  .markdown-container #mtj-slider {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
+  }
+}
+@keyframes pulsate {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+#scroll-down-btn i {
+  animation: pulsate 1.5s linear infinite;
+}
