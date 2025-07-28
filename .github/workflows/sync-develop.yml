@@ -1,4 +1,5 @@
 name: Sync Develop with Main
+run-name: Sync branches
 
 on:
   push:
