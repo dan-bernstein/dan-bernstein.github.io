@@ -1,99 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Me - Daniel Bernstein</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Daniel Bernstein</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" />
-  <script>
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.classList.add("dark");
-    }
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="icon" type="image/png" href="../assets/TabIcon.png" />
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
   <style>
-    .dark-mode {
-      background-color: #1a1a1a;
-      color: #f8f8f8;
-    }
-
-    .dark-mode .bg-white {
-      background-color: #1a1a1a;
-    }
-
-    .dark-mode .text-black {
-      color: #f8f8f8;
-    }
-
     #particles-js {
       position: fixed;
       top: 0;
       left: 0;
+      z-index: -1;
       width: 100%;
       height: 100%;
-      z-index: -1;
     }
   </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300 min-h-screen flex flex-col items-center p-6 relative">
+<body class="bg-white dark:bg-gray-900 text-black dark:text-white relative transition-colors duration-300">
   <div id="particles-js"></div>
-  <div class="w-full max-w-4xl z-10">
-    <div class="flex justify-between items-center w-full mb-4">
-      <a href="/" class="text-blue-500 hover:underline mb-4 inline-block">← Back to Home</a>
-      <button id="dark-mode-toggle" class="p-2 text-black dark:text-white rounded shadow-md">🌓</button>
+
+  <!-- Navbar -->
+  <nav class="p-4 flex flex-wrap items-center justify-between w-full px-2 md:px-4">
+    <div>
+      <a href="/" class="text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Home</a>
+      <a href="/about/" class="text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">About Me</a>
+      <a href="/contact/" class="text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Contact</a>
     </div>
+  </nav>
 
-    <h1 class="text-4xl font-bold mb-6">About Me</h1>
-
-    <p class="text-lg leading-relaxed mb-4">
-      Hi, I’m Daniel Bernstein — a systems test engineer and materials science grad student who loves applying creativity to engineering problems.
+  <!-- About Section -->
+  <section class="px-6 md:px-20 py-10 max-w-5xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+    <p class="text-lg leading-relaxed mb-10">
+      I'm Daniel Bernstein, a passionate engineer with a deep interest in technology, design, and creativity. Whether I'm building something from scratch, collaborating on technical projects, or just diving into new ideas, I’m always seeking to learn and create. This page gives a little insight into who I am beyond the technical work.
     </p>
 
-    <p class="text-lg leading-relaxed mb-4">
-      My interests include compound semiconductors, sustainable tech, and quantum computing. I build things, solve problems, and always stay curious.
-    </p>
-  </div>
+    <!-- Dynamic Carousel -->
+    <div x-data="{
+        active: 0,
+        images: ['../assets/photo1.jpg', '../assets/photo2.jpg', '../assets/photo3.jpg'],
+        next() { this.active = (this.active + 1) % this.images.length },
+        prev() { this.active = (this.active - 1 + this.images.length) % this.images.length }
+      }" class="relative w-full overflow-hidden rounded-xl shadow-lg">
+      <div class="relative w-full h-72 md:h-96">
+        <template x-for="(img, index) in images" :key="index">
+          <div x-show="active === index"
+               x-transition:enter="transition transform duration-500"
+               x-transition:enter-start="translate-x-full opacity-0"
+               x-transition:enter-end="translate-x-0 opacity-100"
+               x-transition:leave="transition transform duration-500"
+               x-transition:leave-start="translate-x-0 opacity-100"
+               x-transition:leave-end="-translate-x-full opacity-0"
+               class="absolute inset-0 w-full h-full">
+            <img :src="img" alt="Daniel Photo" class="object-cover w-full h-full rounded-xl">
+          </div>
+        </template>
+      </div>
 
-  <footer class="mt-8 mb-4 z-10">
-    <div class="flex flex-col md:flex-row items-center justify-between text-sm text-gray-600 dark:text-gray-300 space-y-2 md:space-y-0">
-      <div>&copy; <script>document.write(new Date().getFullYear());</script> Dan Bernstein</div>
-      <div class="cursor-pointer text-blue-500 hover:underline" onclick="elevator.elevate();">To the Top ⬆️</div>
+      <!-- Controls -->
+      <div class="absolute inset-0 flex items-center justify-between px-4">
+        <button @click="prev" class="bg-white dark:bg-gray-800 bg-opacity-70 hover:bg-opacity-100 text-black dark:text-white p-2 rounded-full shadow">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button @click="next" class="bg-white dark:bg-gray-800 bg-opacity-70 hover:bg-opacity-100 text-black dark:text-white p-2 rounded-full shadow">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <template x-for="(img, index) in images" :key="index">
+          <button @click="active = index"
+                  :class="{'bg-white dark:bg-gray-300': active === index, 'bg-gray-400 dark:bg-gray-600': active !== index}"
+                  class="w-3 h-3 rounded-full transition-all duration-200"></button>
+        </template>
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://unpkg.com/elevator.js"></script>
+  <!-- Scripts -->
   <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Match the same particles.js settings from your main page
     particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 }},
-        color: { value: '#888888' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 125, color: '#888888', opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 6 }
+      "particles": {
+        "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#999999" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": false },
+        "size": { "value": 3, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#999999", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
       },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'repulse' },
-          onclick: { enable: true },
-          resize: true
-        },
-        modes: { repulse: { distance: 200, duration: 0.4 }}
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": false },
+          "onclick": { "enable": false },
+          "resize": true
+        }
       },
-      retina_detect: true
-    });
-
-    const elevator = new Elevator({ duration: 2000 });
-
-    const toggleBtn = document.getElementById("dark-mode-toggle");
-    toggleBtn.addEventListener("click", () => {
-      const html = document.documentElement;
-      html.classList.toggle("dark");
-      localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-      toggleBtn.innerText = html.classList.contains("dark") ? "☀️" : "🌓";
+      "retina_detect": true
     });
   </script>
+  <script src="../js/scripts.js"></script>
 </body>
 </html>
+
