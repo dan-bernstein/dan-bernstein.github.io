@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me | Daniel Bernstein</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/styles.css" />
   <link rel="icon" type="image/png" href="../assets/TabIcon.png" />
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
   <style>
@@ -19,15 +20,15 @@
     }
   </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-black dark:text-white relative transition-colors duration-300">
+<body class="bg-white text-black relative transition-colors duration-300">
   <div id="particles-js"></div>
 
   <!-- Navbar -->
   <nav class="p-4 flex flex-wrap items-center justify-between w-full px-2 md:px-4">
     <div>
-      <a href="/" class="text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Home</a>
-      <a href="/about/" class="text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">About Me</a>
-      <a href="/contact/" class="text-lg font-medium hover:bg-gray-100 dark:hover:bg-gray-800 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Contact</a>
+      <a href="/" class="text-lg font-medium text-black hover:bg-gray-100 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Home</a>
+      <a href="/about/" class="text-lg font-medium text-black hover:bg-gray-100 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">About Me</a>
+      <a href="/contact/" class="text-lg font-medium text-black hover:bg-gray-100 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Contact</a>
     </div>
   </nav>
 
@@ -41,7 +42,7 @@
     <!-- Dynamic Carousel -->
     <div x-data="{
         active: 0,
-        images: ['../assets/photo1.jpg', '../assets/photo2.jpg', '../assets/photo3.jpg'],
+        images: ['../assets/about1.jpg', '../assets/about2.jpg', '../assets/about3.jpg'],
         next() { this.active = (this.active + 1) % this.images.length },
         prev() { this.active = (this.active - 1 + this.images.length) % this.images.length }
       }" class="relative w-full overflow-hidden rounded-xl shadow-lg">
@@ -55,17 +56,17 @@
                x-transition:leave-start="translate-x-0 opacity-100"
                x-transition:leave-end="-translate-x-full opacity-0"
                class="absolute inset-0 w-full h-full">
-            <img :src="img" alt="Daniel Photo" class="object-cover w-full h-full rounded-xl">
+            <img :src="img" alt="Bernstein Photo" class="object-cover w-full h-full rounded-xl">
           </div>
         </template>
       </div>
 
       <!-- Controls -->
       <div class="absolute inset-0 flex items-center justify-between px-4">
-        <button @click="prev" class="bg-white dark:bg-gray-800 bg-opacity-70 hover:bg-opacity-100 text-black dark:text-white p-2 rounded-full shadow">
+        <button @click="prev" class="bg-white bg-opacity-70 hover:bg-opacity-100 text-black p-2 rounded-full shadow">
           <i class="fas fa-chevron-left"></i>
         </button>
-        <button @click="next" class="bg-white dark:bg-gray-800 bg-opacity-70 hover:bg-opacity-100 text-black dark:text-white p-2 rounded-full shadow">
+        <button @click="next" class="bg-white bg-opacity-70 hover:bg-opacity-100 text-black p-2 rounded-full shadow">
           <i class="fas fa-chevron-right"></i>
         </button>
       </div>
@@ -74,7 +75,7 @@
       <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
         <template x-for="(img, index) in images" :key="index">
           <button @click="active = index"
-                  :class="{'bg-white dark:bg-gray-300': active === index, 'bg-gray-400 dark:bg-gray-600': active !== index}"
+                  :class="{'bg-white': active === index, 'bg-gray-400': active !== index}"
                   class="w-3 h-3 rounded-full transition-all duration-200"></button>
         </template>
       </div>
@@ -87,15 +88,22 @@
   </script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Match the same particles.js settings from your main page
+    // Adjust particles.js colors based on system theme
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     particlesJS('particles-js', {
       "particles": {
         "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#999999" },
+        "color": { "value": isDarkMode ? "#cccccc" : "#999999" },
         "shape": { "type": "circle" },
         "opacity": { "value": 0.5, "random": false },
         "size": { "value": 3, "random": true },
-        "line_linked": { "enable": true, "distance": 150, "color": "#999999", "opacity": 0.4, "width": 1 },
+        "line_linked": { 
+          "enable": true, 
+          "distance": 150, 
+          "color": isDarkMode ? "#cccccc" : "#999999", 
+          "opacity": 0.4, 
+          "width": 1 
+        },
         "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
       },
       "interactivity": {
@@ -112,4 +120,3 @@
   <script src="../js/scripts.js"></script>
 </body>
 </html>
-
