@@ -34,15 +34,18 @@
 
   <!-- About Section -->
   <section class="px-6 md:px-20 py-10 max-w-5xl mx-auto">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+    <h1 class="text-4xl md:text-4xl font-bold mb-4">About Me</h1>
     <p class="text-lg leading-relaxed mb-10">
-      I'm Daniel Bernstein, a passionate engineer with a deep interest in technology, design, and creativity. Whether I'm building something from scratch, collaborating on technical projects, or just diving into new ideas, I’m always seeking to learn and create. This page gives a little insight into who I am beyond the technical work.
+      I'm Daniel Bernstein, an engineer with an interest in research, design, and novel technologies. Whether I'm working on technical projects, fixing up something old, or just diving into new ideas, I’m always looking to learn and create. Hopefully this page can give a little insight into who I am beyond my resume.
+<br>
+<br>
+Currently, I am a Materials Science graduate student at Tufts University and a Systems Test Engineer at Raytheon. I graduated from Colgate University in 2023 with a degree in Physics. In my free time I can be found skiing, biking, skateboarding, or applying to be a contestant on game shows. Hope you like my website! 
     </p>
 
     <!-- Dynamic Carousel -->
     <div x-data="{
         active: 0,
-        images: ['../assets/about1.jpg', '../assets/about2.jpg', '../assets/about3.jpg'],
+        images: ['../assets/about3.jpg', '../assets/about2.jpg', '../assets/about1.jpg', '../assets/about4.jpg'],
         next() { this.active = (this.active + 1) % this.images.length },
         prev() { this.active = (this.active - 1 + this.images.length) % this.images.length }
       }" class="relative w-full overflow-hidden rounded-xl shadow-lg">
