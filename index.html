@@ -8,9 +8,156 @@
   <link rel="icon" type="image/png" href="assets/TabIcon.png">
   <link rel="stylesheet" href="css/styles.css">
   <title>Daniel Bernstein</title>
+  <style>
+    /* Particles.js background */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Mobile-first responsive design for intro section */
+    .intro-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      padding: 2rem 1rem;
+    }
+    
+    .intro-title {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    
+    .intro-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 90%;
+      white-space: nowrap;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    
+    .social-links a {
+      font-size: 1.25rem;
+      padding: 0.5rem;
+    }
+    
+    /* Tablet styles */
+    @media (min-width: 768px) {
+      .intro-title {
+        font-size: 4rem;
+      }
+      
+      .intro-subtitle {
+        font-size: 1.25rem;
+        max-width: 80%;
+      }
+      
+      .social-links {
+        gap: 1.25rem;
+      }
+      
+      .social-links a {
+        font-size: 1.5rem;
+      }
+    }
+    
+    /* Desktop styles */
+    @media (min-width: 1024px) {
+      .intro-title {
+        font-size: 5rem;
+      }
+      
+      .intro-subtitle {
+        font-size: 1.5rem;
+        max-width: 70%;
+      }
+      
+      .social-links {
+        gap: 1.5rem;
+      }
+      
+      .social-links a {
+        font-size: 1.75rem;
+      }
+    }
+    
+    /* Large desktop styles */
+    @media (min-width: 1280px) {
+      .intro-title {
+        font-size: 6rem;
+      }
+    }
+    
+    /* Scroll button responsive positioning */
+    .scroll-button {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid #e5e7eb;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #374151;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      z-index: 10;
+    }
+    
+    .scroll-button:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: translateX(-50%) translateY(-1px) scale(0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    @media (min-width: 768px) {
+      .scroll-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.25rem;
+        bottom: 2.5rem;
+      }
+    }
+    
+    /* Content section spacing */
+    .content-section {
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .content-section {
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+      }
+    }
+    
+
+  </style>
 </head>
 <body class="bg-white relative">
   <div id="particles-js"></div>
+  
+  <!-- Navigation -->
   <nav class="p-4 flex flex-wrap items-center justify-between w-full px-2 md:px-4">
     <div>
       <a href="/" class="text-lg font-medium text-black hover:bg-gray-100 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Home</a>
@@ -18,51 +165,131 @@
       <a href="/contact/" class="text-lg font-medium text-black hover:bg-gray-100 hover:shadow-md px-3 py-1.5 rounded transition-all duration-200">Contact</a>
     </div>
   </nav>
-  <div class="flex flex-col items-center justify-center min-h-screen">
-    <div id="header-container" class="px-10 py-5 space-x-2">
-      <h1 class="text-8xl font-bold mb-5">Daniel Bernstein</h1>
-      <h3 class="text-xl mb-4"><b>Engineering Excellence, Crafted with Creativity</b></h3>
-      <div class="flex space-x-4">
-        <a href="https://www.linkedin.com/in/daniel-bernstein1" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-linkedin"></i></a>
-        <a href="https://instagram.com/dan.bern" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-instagram"></i></a>
-        <a href="tel:+19788095889" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fa-solid fa-phone"></i></a>
-        <a href="mailto:danhbern@gmail.com" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fas fa-envelope"></i></a>
+  
+  <!-- Hero/Intro Section -->
+  <div class="intro-section">
+    <div id="header-container">
+      <h1 class="intro-title font-bold">Daniel Bernstein</h1>
+      <h3 class="intro-subtitle font-semibold">Engineering Excellence, Crafted with Creativity</h3>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/daniel-bernstein1" target="_blank" class="text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/dan.bern" target="_blank" class="text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="tel:+19788095889" target="_blank" class="text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="mailto:danhbern@gmail.com" target="_blank" class="text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
     </div>
   </div>
-  <div id="content-container" class="flex flex-col md:flex-row w-full flex-wrap mt-6 mb-20 mx-1 md:mx-0">
-    <div id="posts-container" class="w-full md:w-1/3 px-4 py-5 mb-5 md:mb-0">
-      <h3 class="text-2xl font-semibold mb-4"><i class="fa-solid fa-magnifying-glass"></i> Creative Projects</h3>
+  
+  <!-- Content Section -->
+  <div id="content-container" class="content-section flex flex-col md:flex-row w-full flex-wrap px-2 md:px-4">
+    <div id="posts-container" class="w-full md:w-1/3 px-2 md:px-4 py-5 mb-5 md:mb-0">
+      <h3 class="text-xl md:text-2xl font-semibold mb-4"><i class="fa-solid fa-magnifying-glass"></i> Creative Projects</h3>
       <h4 class="text-sm italic mb-4">A display of my hobbies & interests</h4>
       <div id="posts-list" class="space-y-4"></div>
     </div>
-    <div id="projects-container" class="w-full md:w-2/3 px-4 py-5 mb-5 md:mb-0">
-      <h3 class="text-2xl font-semibold mb-4"><i class="fa-solid fa-code"></i> Technical Work</h3>
+    <div id="projects-container" class="w-full md:w-2/3 px-2 md:px-4 py-5 mb-5 md:mb-0">
+      <h3 class="text-xl md:text-2xl font-semibold mb-4"><i class="fa-solid fa-code"></i> Technical Work</h3>
       <h4 class="text-sm italic mb-4">My research and other technical endeavors</h4>
-      <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-wrap"></div>
+      <div id="projects-list" class="grid grid-cols-1 xl:grid-cols-2 gap-4 flex-wrap"></div>
     </div>
   </div>
-  <div id="listening-container" class="w-full px-20 py-5">
-    <h3 class="text-2xl font-semibold mb-4"><i class="fab fa-spotify"></i> Music I've Been Enjoying</h3>
+  
+  <!-- Music Section -->
+  <div id="listening-container" class="w-full px-4 md:px-20 py-5">
+    <h3 class="text-xl md:text-2xl font-semibold mb-4"><i class="fab fa-spotify"></i> Music I've Been Enjoying</h3>
     <div id="listening-list" class="flex flex-wrap mx-auto md:-mx-2 md:space-x-4"></div>
-    <iframe style="border-radius:12px" 
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1EpwM8ULPn059D?utm_source=generator&theme=0" 
-            width="100%" 
-            height="624" 
-            frameborder="0" 
-            allowfullscreen="" 
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-            loading="lazy">
+    <iframe 
+      style="border-radius:12px" 
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1EpwM8ULPn059D?utm_source=generator&theme=0" 
+      width="100%" 
+      height="500"
+      class="md:h-128 lg:h-144"
+      frameborder="0" 
+      allowfullscreen 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
     </iframe>
   </div>
-  <button id="scroll-down-btn" class="fixed bottom-4 left-1/2 text-black p-4 rounded shadow-md opacity-90 transition-colors duration-200 ease-in-out">
-    <i class="fa-solid fa-v"></i>
+  
+  <!-- Scroll Down Button -->
+  <button id="scroll-down-btn" class="scroll-button">
+    <i class="fa-solid fa-chevron-down"></i>
   </button>
+  
+  <!-- All your existing scripts -->
   <script src="https://cdn.jsdelivr.net/npm/before-after-slider@1.0.0/dist/slider.bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
   <script src="https://unpkg.com/elevator.js"></script>
   <script src="https://cdn.sheetjs.com/xlsx-latest/xlsx.full.min.js"></script>
+  
+  <!-- Additional mobile responsive JavaScript -->
+  <script>
+    // Initialize particles.js (keeping your existing functionality)
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": isDarkMode ? "#cccccc" : "#999999" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": false },
+        "size": { "value": 3, "random": true },
+        "line_linked": { 
+          "enable": true, 
+          "distance": 150, 
+          "color": isDarkMode ? "#cccccc" : "#999999", 
+          "opacity": 0.4, 
+          "width": 1 
+        },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": false },
+          "onclick": { "enable": false },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+    
+    // Enhanced scroll button functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollBtn = document.getElementById('scroll-down-btn');
+      
+      // Scroll to content when clicked
+      scrollBtn.addEventListener('click', function() {
+        document.getElementById('content-container').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      });
+      
+      // Show/hide scroll button based on scroll position
+      window.addEventListener('scroll', function() {
+        const introSection = document.querySelector('.intro-section');
+        const introRect = introSection.getBoundingClientRect();
+        
+        if (introRect.bottom <= window.innerHeight * 0.5) {
+          scrollBtn.style.opacity = '0';
+          scrollBtn.style.pointerEvents = 'none';
+        } else {
+          scrollBtn.style.opacity = '1';
+          scrollBtn.style.pointerEvents = 'auto';
+        }
+      });
+    });
+  </script>
+  
+  <!-- Your existing scripts.js file -->
   <script src="js/scripts.js"></script>
 </body>
 </html>
