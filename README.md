@@ -1,6 +1,6 @@
 # Dan Bernstein's Website
 
-Welcome to the source code for my personal portfolio website, hosted at [dan-bernstein.github.io](https://dan-bernstein.github.io). This site showcases my technical and creative projects, highlighting my skills in engineering, design, and research. Built with modern web technologies, it features a clean, responsive design and dynamic content rendering.
+Welcome to the source code for my personal portfolio website, hosted at [danbernste.in](https://danbernste.in). This site showcases my technical and creative projects, highlighting my skills in engineering, design, and research. Built with modern web technologies, it features a clean, responsive design and dynamic content rendering.
 
 ## Features
 
