@@ -49,9 +49,9 @@
   }
 }
 @keyframes pulsate {
-  0% { transform: scale(1.9); opacity: 0.85; }
+  0% { transform: scale(1.7); opacity: 0.75; }
   50% { transform: scale(2.2); opacity: 1; }
-  100% { transform: scale(1.9); opacity: 0.85; }
+  100% { transform: scale(1.7); opacity: 0.75; }
 }
 #scroll-down-btn i {
   animation: pulsate 1.5s linear infinite;
