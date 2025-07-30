@@ -25,6 +25,87 @@ const converter = new showdown.Converter({
   tables: true,
 });
 
+// Before/After Slider Implementation
+class BeforeAfterSlider {
+  constructor(container) {
+    this.container = container;
+    this.afterImage = container.querySelector('.after-image');
+    this.handle = container.querySelector('.slider-handle');
+    this.isDragging = false;
+    
+    // Ensure images are loaded before initializing
+    this.waitForImages().then(() => {
+      this.init();
+    });
+  }
+  
+  waitForImages() {
+    const images = [
+      this.container.querySelector('.before-image'),
+      this.afterImage
+    ];
+    
+    const promises = images.map(img => {
+      if (img.complete) {
+        return Promise.resolve();
+      }
+      return new Promise(resolve => {
+        img.addEventListener('load', resolve);
+        img.addEventListener('error', resolve);
+      });
+    });
+    
+    return Promise.all(promises);
+  }
+  
+  init() {
+    // Mouse events - listen on the entire container
+    this.container.addEventListener('mousedown', this.startDrag.bind(this));
+    document.addEventListener('mousemove', this.drag.bind(this));
+    document.addEventListener('mouseup', this.stopDrag.bind(this));
+    
+    // Touch events for mobile
+    this.container.addEventListener('touchstart', this.startDrag.bind(this));
+    document.addEventListener('touchmove', this.drag.bind(this));
+    document.addEventListener('touchend', this.stopDrag.bind(this));
+    
+    // Prevent default drag behavior on images
+    const images = this.container.querySelectorAll('img');
+    images.forEach(img => {
+      img.addEventListener('dragstart', e => e.preventDefault());
+    });
+  }
+  
+  startDrag(e) {
+    this.isDragging = true;
+    e.preventDefault();
+    this.updateSlider(e);
+  }
+  
+  stopDrag() {
+    this.isDragging = false;
+  }
+  
+  drag(e) {
+    if (!this.isDragging) return;
+    e.preventDefault();
+    this.updateSlider(e);
+  }
+  
+  updateSlider(e) {
+    const rect = this.container.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    
+    // Update handle position
+    this.handle.style.left = `${percentage}%`;
+    
+    // Update after image clip-path
+    this.afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+  }
+}
+
 async function fetchMarkdownFiles(folder, files, container, maxVisibleItems) {
   let itemCount = 0;
   for (const file of files) {
@@ -127,14 +208,14 @@ footerContent.className = "flex items-center justify-between";
 footer.appendChild(footerContent);
 const copyright = document.createElement("div");
 copyright.className = "hidden md:flex";
-copyright.innerHTML = '  © ' + (new Date().getFullYear()) + ' Dan Bernstein';
+copyright.innerHTML = '  © ' + (new Date().getFullYear()) + ' Dan Bernstein';
 footerContent.appendChild(copyright);
 const madeWith = document.createElement("div");
 madeWith.className = "hidden md:flex";
 madeWith.innerHTML = '';
 footerContent.appendChild(madeWith);
 const elevatorBtnDiv = document.createElement("div");
-elevatorBtnDiv.innerHTML = 'To the Top  <i class="fas fa-angle-up"></i>  ';
+elevatorBtnDiv.innerHTML = 'To the Top  <i class="fas fa-angle-up"></i>  ';
 elevatorBtnDiv.className = "text-center flex justify-center items-center cursor-pointer mt-4";
 elevatorBtnDiv.onclick = () => { elevator.elevate(); };
 footerContent.appendChild(elevatorBtnDiv);
@@ -155,3 +236,12 @@ scrollDownBtn.addEventListener('click', () => {
 });
 window.addEventListener('scroll', toggleScrollButtonVisibility);
 toggleScrollButtonVisibility();
+
+// Initialize before/after sliders when DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait a bit for any dynamically loaded content
+  setTimeout(() => {
+    const sliders = document.querySelectorAll('.before-after-slider');
+    sliders.forEach(slider => new BeforeAfterSlider(slider));
+  }, 500);
+});

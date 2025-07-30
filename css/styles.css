@@ -19,6 +19,169 @@
   height: 100%;
   z-index: -1;
 }
+
+/* Before/After Slider Styles - Less Intrusive */
+.before-after-container {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto 2rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.before-after-slider {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.4%; /* 2157/3247 = 0.664 aspect ratio for your images */
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+}
+
+.before-image, .after-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.after-image {
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.1s ease;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: col-resize;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.slider-handle:hover {
+  width: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.slider-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.slider-handle:hover::before {
+  width: 32px;
+  height: 32px;
+  background: white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slider-handle::after {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.slider-handle:hover::after {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 13px;
+}
+
+.before-label, .after-label {
+  position: absolute;
+  top: 15px;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 5;
+  opacity: 0.8;
+}
+
+.before-label {
+  left: 15px;
+}
+
+.after-label {
+  right: 15px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .before-after-slider {
+    padding-bottom: 66.4%; /* Maintain aspect ratio on mobile */
+  }
+  
+  .slider-handle {
+    width: 2px;
+  }
+  
+  .slider-handle:hover {
+    width: 3px;
+  }
+  
+  .slider-handle::before {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .slider-handle:hover::before {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .slider-handle::after {
+    font-size: 10px;
+  }
+  
+  .before-label, .after-label {
+    top: 12px;
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+  
+  .before-label {
+    left: 12px;
+  }
+  
+  .after-label {
+    right: 12px;
+  }
+}
+
 /* System dark mode styles */
 @media (prefers-color-scheme: dark) {
   body, .bg-white {
@@ -47,12 +210,36 @@
   .markdown-container #mtj-slider {
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
   }
+  
+  /* Dark mode slider adjustments */
+  .slider-handle {
+    background: rgba(200, 200, 200, 0.8);
+  }
+  
+  .slider-handle:hover {
+    background: rgba(220, 220, 220, 0.95);
+  }
+  
+  .slider-handle::before {
+    background: rgba(200, 200, 200, 0.95);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .slider-handle:hover::before {
+    background: rgba(220, 220, 220, 1);
+  }
+  
+  .slider-handle::after {
+    color: rgba(0, 0, 0, 0.7);
+  }
 }
+
 @keyframes pulsate {
   0% { transform: scale(1.7); opacity: 0.75; }
   50% { transform: scale(2.2); opacity: 1; }
   100% { transform: scale(1.7); opacity: 0.75; }
 }
+
 #scroll-down-btn i {
   animation: pulsate 1.5s linear infinite;
 }
