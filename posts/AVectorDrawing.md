@@ -9,5 +9,3 @@ Created vector drawings using Adobe Illustrator
     <div class="slider-handle"></div>
   </div>
 </div>
-
-<i class="fa-solid fa-paintbrush"></i> <strong>Check out the Before and After!</strong>
