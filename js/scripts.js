@@ -25,71 +25,55 @@ const converter = new showdown.Converter({
   tables: true,
 });
 
-// Before/After Slider Implementation
 class BeforeAfterSlider {
   constructor(container) {
     this.container = container;
     this.afterImage = container.querySelector('.after-image');
     this.handle = container.querySelector('.slider-handle');
     this.isDragging = false;
+    this.animationFrame = null;
     
-    // Ensure images are loaded before initializing
-    this.waitForImages().then(() => {
-      this.init();
-    });
-  }
-  
-  waitForImages() {
-    const images = [
-      this.container.querySelector('.before-image'),
-      this.afterImage
-    ];
-    
-    const promises = images.map(img => {
-      if (img.complete) {
-        return Promise.resolve();
-      }
-      return new Promise(resolve => {
-        img.addEventListener('load', resolve);
-        img.addEventListener('error', resolve);
-      });
-    });
-    
-    return Promise.all(promises);
+    this.init();
   }
   
   init() {
-    // Mouse events - listen on the entire container
-    this.container.addEventListener('mousedown', this.startDrag.bind(this));
-    document.addEventListener('mousemove', this.drag.bind(this));
-    document.addEventListener('mouseup', this.stopDrag.bind(this));
+    this.container.addEventListener('mousedown', this.handleStart.bind(this));
+    this.container.addEventListener('touchstart', this.handleStart.bind(this), { passive: false });
     
-    // Touch events for mobile
-    this.container.addEventListener('touchstart', this.startDrag.bind(this));
-    document.addEventListener('touchmove', this.drag.bind(this));
-    document.addEventListener('touchend', this.stopDrag.bind(this));
+    document.addEventListener('mousemove', this.handleMove.bind(this));
+    document.addEventListener('touchmove', this.handleMove.bind(this), { passive: false });
     
-    // Prevent default drag behavior on images
+    document.addEventListener('mouseup', this.handleEnd.bind(this));
+    document.addEventListener('touchend', this.handleEnd.bind(this));
+    
     const images = this.container.querySelectorAll('img');
-    images.forEach(img => {
-      img.addEventListener('dragstart', e => e.preventDefault());
-    });
+    images.forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
   }
   
-  startDrag(e) {
+  handleStart(e) {
     this.isDragging = true;
     e.preventDefault();
     this.updateSlider(e);
   }
   
-  stopDrag() {
+  handleEnd() {
     this.isDragging = false;
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+      this.animationFrame = null;
+    }
   }
   
-  drag(e) {
+  handleMove(e) {
     if (!this.isDragging) return;
     e.preventDefault();
-    this.updateSlider(e);
+    
+    if (this.animationFrame) return;
+    
+    this.animationFrame = requestAnimationFrame(() => {
+      this.updateSlider(e);
+      this.animationFrame = null;
+    });
   }
   
   updateSlider(e) {
@@ -98,10 +82,7 @@ class BeforeAfterSlider {
     const x = clientX - rect.left;
     const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
     
-    // Update handle position
     this.handle.style.left = `${percentage}%`;
-    
-    // Update after image clip-path
     this.afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
   }
 }
@@ -190,12 +171,20 @@ async function loadFilesAndRender() {
       { name: 'posts', files: fileLists.posts || [], container: postsList, maxVisibleItems: 3 },
       { name: 'projects', files: fileLists.projects || [], container: projectsList, maxVisibleItems: 2 }
     ];
-    folders.forEach(({ name, files, container, maxVisibleItems }) => {
-      fetchMarkdownFiles(name, files, container, maxVisibleItems);
-    });
+    
+    await Promise.all(folders.map(({ name, files, container, maxVisibleItems }) => 
+      fetchMarkdownFiles(name, files, container, maxVisibleItems)
+    ));
+    
+    initializeSliders();
   } catch (error) {
     console.error(`Error loading files.json: ${error.message}`);
   }
+}
+
+function initializeSliders() {
+  const sliders = document.querySelectorAll('.before-after-slider');
+  sliders.forEach(slider => new BeforeAfterSlider(slider));
 }
 
 loadFilesAndRender();
@@ -236,12 +225,3 @@ scrollDownBtn.addEventListener('click', () => {
 });
 window.addEventListener('scroll', toggleScrollButtonVisibility);
 toggleScrollButtonVisibility();
-
-// Initialize before/after sliders when DOM content is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Wait a bit for any dynamically loaded content
-  setTimeout(() => {
-    const sliders = document.querySelectorAll('.before-after-slider');
-    sliders.forEach(slider => new BeforeAfterSlider(slider));
-  }, 500);
-});
