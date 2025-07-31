@@ -1,0 +1,27 @@
+name: Sync Develop with Main
+run-name: Sync branches
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: develop
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Merge main into develop
+        run: |
+          git fetch origin main
+          git merge origin/main --no-edit
+          git push origin develop
