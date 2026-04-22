@@ -8,13 +8,13 @@
     "zMiscellaneous.md"
   ],
   "projects": [
-    "tuftsresearch.md",
     "Devbuild.md",
     "Spintronics.md",
     "SuperconductingElectronics.md",
     "TheRFSystemSimulation.md",
     "latticeModel.md",
     "semiconductor.md",
+    "tuftsresearch.md",
     "website.md",
     "zelectronics.md"
   ]
